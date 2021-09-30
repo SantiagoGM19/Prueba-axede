@@ -8,18 +8,28 @@ print("Bienvenido!!")
 
 
 def MostrarHoteles():
-    opcion = int(input("Ingrese la opcion: "))
     print("Seleccione Hotel")
     print("1 --> Barranquilla")
     print("2 --> Cali")
     print("3 --> Cartagena")
     print("4 --> Bogotá")
+    opcion = int(input("Ingrese la opcion: "))
     return opcion
 
-def mostrarFuncionalidades():
+def mostrarFuncionalidades(hotel):
     print("1 --> Ver disponibilidad")
     print("2 --> Ver tarifas")
     print("3 --> Calcular tarifa")
+    opcion = int(input("Ingrese opcion: "))
+    
+    if(opcion == 1):
+        print("disponibilidad general del hotel es: ", hotel.verDisponibilidad())
+        
+    elif(opcion == 2):
+        pass
+    elif(opcion == 3):
+        pass
+
 
 
 opcion = MostrarHoteles()
@@ -37,7 +47,9 @@ while True:
     else:
         hotel = Sede(42, 6)
 
-    opcion2 = str(input("¿esea volver al menú de hoteles? Sí:y No:n"))
+    mostrarFuncionalidades(hotel)
+
+    opcion3 = str(input("¿esea volver al menú de hoteles? Sí:y No:n"))
 
     if(opcion2 == "y"):
         opcion = MostrarHoteles()
