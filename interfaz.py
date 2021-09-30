@@ -1,6 +1,7 @@
 
 import datetime as date
 from Modelo import *
+from conexion import *
 
 
 print("Bienvenido!!")
@@ -23,8 +24,16 @@ def mostrarFuncionalidades(hotel):
     opcion = int(input("Ingrese opcion: "))
     
     if(opcion == 1):
-        print("disponibilidad general del hotel es: ", hotel.verDisponibilidad())
-        
+        if(hotel.ciudad == "barranquilla"):
+            habitacionesDisponibles = conexion.verHabitacionesDisponibles()
+            pass
+        elif(hotel.ciudad == "cali"):
+            pass
+        elif(hotel.ciudad == "cartagena"):
+            pass
+        else:
+            pass
+
     elif(opcion == 2):
         pass
     elif(opcion == 3):
@@ -36,20 +45,20 @@ opcion = MostrarHoteles()
 
 while True:
     if(opcion == 1):
-        hotel = Sede(33, 4)
+        hotel = Sede(33, 4, "barranquilla")
 
     elif(opcion == 2):
-        hotel = Sede(28, 6)
+        hotel = Sede(28, 6, "cali")
 
     elif(opcion == 3):
-        hotel = Sede(11, 8)
+        hotel = Sede(11, 8, "cartagena")
 
     else:
-        hotel = Sede(42, 6)
+        hotel = Sede(42, 6, "bogota")
 
     mostrarFuncionalidades(hotel)
 
-    opcion3 = str(input("¿esea volver al menú de hoteles? Sí:y No:n"))
+    opcion2 = str(input("¿esea volver al menú de hoteles? Sí:y No:n"))
 
     if(opcion2 == "y"):
         opcion = MostrarHoteles()
